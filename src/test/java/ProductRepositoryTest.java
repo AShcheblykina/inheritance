@@ -11,9 +11,9 @@ public class ProductRepositoryTest {
     @Test
     public void addedProduct() {
         ProductRepository repo = new ProductRepository();
-        repo.save(products1);
-        repo.save(products2);
-        repo.save(products3);
+        repo.add(products1);
+        repo.add(products2);
+        repo.add(products3);
 
         Product[] expected = {products1,products2,products3};
         Product[] actual = repo.findAll();
@@ -23,10 +23,10 @@ public class ProductRepositoryTest {
     @Test
     public void addedOneProduct() {
         ProductRepository repo = new ProductRepository();
-        repo.save(products1);
+        repo.add(products1);
 
         Product[] expected = {products1};
-        Product[] actual = repo.getProducts();
+        Product[] actual = repo.findAll();
 
         Assertions.assertArrayEquals(expected,actual);
 
@@ -34,32 +34,32 @@ public class ProductRepositoryTest {
     @Test
     public void addedTwoProduct() {
         ProductRepository repo = new ProductRepository();
-        repo.save(products1);
-        repo.save(products2);
+        repo.add(products1);
+        repo.add(products2);
 
         Product[] expected = {products1,products2};
-        Product[] actual = repo.getProducts();
+        Product[] actual = repo.findAll();
     }
     @Test
     public void saveOneProduct() {
         ProductRepository repo = new ProductRepository();
-        repo.save(products3);
+        repo.add(products3);
 
         Product[] expected = {products1,products2};
-        Product[] actual = repo.getProducts();
+        Product[] actual = repo.findAll();
 
 
     }
     @Test
     public void deleteProduct() {
         ProductRepository repo = new ProductRepository();
-        repo.save(products1);
-        repo.save(products2);
-        repo.save(products3);
-        repo.deleteById(products3.getId());
+        repo.add(products1);
+        repo.add(products2);
+        repo.add(products3);
+        repo.removeById(products3.getId());
 
         Product[] expected = {products1,products2};
-        Product[] actual = repo.getProducts();
+        Product[] actual = repo.findAll();
 
         Assertions.assertArrayEquals(expected,actual);
     }
