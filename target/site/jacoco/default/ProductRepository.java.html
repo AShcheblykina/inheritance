@@ -11,12 +11,20 @@
 
 <span class="fc" id="L12">    }</span>
 
-   // public void deleteById(int id) {
-
- //   }
+    public void deleteById(int id) {
+<span class="fc" id="L15">        Product[] tmp = new Product[products.length - 1];</span>
+<span class="fc" id="L16">        int copyToIndex = 0;</span>
+<span class="fc bfc" id="L17" title="All 2 branches covered.">        for (Product product : products) {</span>
+<span class="fc bfc" id="L18" title="All 2 branches covered.">            if (product.getId() != id) {</span>
+<span class="fc" id="L19">                tmp[copyToIndex] = product;</span>
+<span class="fc" id="L20">                copyToIndex++;</span>
+            }
+<span class="fc" id="L22">            products = tmp;</span>
+        }
+<span class="fc" id="L24">    }</span>
 
     public Product[] getProducts() {
-<span class="fc" id="L19">        return products;</span>
+<span class="fc" id="L27">        return products;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
